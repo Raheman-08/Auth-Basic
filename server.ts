@@ -14,6 +14,10 @@ const app = express();
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/users', userRoutes);
+
 // Log all requests
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
